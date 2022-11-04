@@ -3,8 +3,21 @@ const productListRight = document.querySelector(".product-list-right");
 const productCheck = document.querySelector(".check");
 
 //do const to same parameter
+//משתנים ברורים
 
-
+function htmlTemp(id,name,url) 
+ {
+    `
+    <div class = "product">
+    <div class = "product-content">
+    <h3 >id: ${id}</h3>
+    <span >site name : ${name}</span>
+    <br/>
+    <a href="${url}" target="_blank" >site url: ${name}</a>
+    </div>
+    </div>
+    `
+}; 
 
 
 // load product items content form JSON file
@@ -22,56 +35,20 @@ const createHtml = async () => {
             // console.log(data[0]['subData']);
 
 
-            //
-            // for (var make in data[0].subData) {
-            //     for (var model in data[0].subData[make]) {
-            //          var doors = data[0].subData[make][model];
-            //         console.log(make + ', ' + model + ', ' + doors);
-                    
-                   
-            //     }
-            // }
-            //
-            
-             ans = JSON.stringify(data[0]);
+     
 
-            //  for (var i=0; i<data[0].subData.length; i++) {
-            //     for (var key in data[0].subData[i]) {
-            //         for (var j= 0; j<data[0].subData[i][key].length; j++) {
-            //             console.log(data[0].subData[i][key][j])
-            //         }
-            //     }
-            //  }
-            
-            for (let i = 0; i < 8; i++) {
-                // ans = JSON.stringify(data[1].subData);
+            ans = JSON.stringify(data[1]);
 
-                // const { id, name, url } = subData;
+         
 
-                // htmlLeft += `
-                // <div class = "product">
-                
-                // <div class = "product-content">
-                // <h3 >id: ${subData.id}</h3>
-                // <span >site name : ${subData.name}</span>
-                // <br/>
-                // <a href="${subData.url}" target="_blank" >site url: ${subData.name}</a>
-                // </div>
-                // </div>
-                // `;
-                // for (let i = 0; i < 8; i++) {
-                //     console.log(data[0].subData[i]);
-    
-                // }
-
-            }
+         
 
             if (data[0].hasOwnProperty('subData')) {
                 // console.log(data[0].subData);
 
             }
 
-            
+
             //show num1
             htmlLeft += `<div class = "product-item">
             <div class = "product-content">
@@ -81,17 +58,17 @@ const createHtml = async () => {
             <a href="${data[0].url}" target="_blank" >site url: ${data[0].name}</a>
             </div>
             </div>`;
-            
+
             // if (data[0].hasOwnProperty('subData')) {
-                //     ans = "work1";
-                // }
-                // else { ans = "not work1"; }
-                productCheck.innerHTML = ans;
-                
-                //show first "subData"
-                data[0].subData.forEach(items => {
-                    const { id, name, url } = items;
-                    htmlLeft += `
+            //     ans = "work1";
+            // }
+            // else { ans = "not work1"; }
+            productCheck.innerHTML = ans;
+
+            //show first "subData"
+            data[0].subData.forEach(items => {
+                const { id, name, url } = items;
+                htmlLeft += `
                     <div class = "product">
                     <div class = "product-content">
                     <h3 >id: ${id}</h3>
@@ -101,36 +78,23 @@ const createHtml = async () => {
                     </div>
                     </div>
                     `;
-                    if(typeof items.subData !== "undefined"){
-                        
-                        items.subData.forEach(item => {
-                          const { id, name, url } = item;
+                if (typeof items.subData !== "undefined") {
 
-                            htmlLeft += `
-                            <div class = "product">
-                            <div class = "product-content">
-                            <h3 >id: ${id}</h3>
-                            <span >site name : ${name}</span>
-                            <br/>
-                            <a href="${url}" target="_blank" >site url: ${name}</a>
-                            </div>
-                            </div>
-                            `;
-                        })
-                    }
+                    items.subData.forEach(item => {
+                        const { id, name, url } = item;
 
-                    // items.forEach(item => {
-                    //     console.log(item);
-
-                    //     // if(item.subData != null)
-                    //     // {
-                    //     //     const { id, name, url } = item.subData;
-                    //     //     console.log(item.subData,id,name,url, "test");
-                            
-                    //     // }
-                    // })
-
-            
+                        htmlLeft +=  `
+                        <div class = "product">
+                        <div class = "product-content">
+                        <h3 >id: ${id}</h3>
+                        <span >site name : ${name}</span>
+                        <br/>
+                        <a href="${url}" target="_blank" >site url: ${name}</a>
+                        </div>
+                        </div>
+                        `;
+                    })
+                }
             });
 
 
@@ -170,12 +134,29 @@ const createHtml = async () => {
                     </div>
                   `;
 
-                  if(typeof items.subData !== "undefined"){
-                        
+                if (typeof items.subData !== "undefined") {
                     items.subData.forEach(item => {
-                      const { id, name, url } = item;
+                        const { id, name, url } = item;
+                        if(typeof item.subData !== "undefined")
+                        {   
+                            item.subData.forEach(prod => {
+                                const { id, name, url } = prod;
+                            htmlRight += `
+                            <div class = "product">
+                            <div class = "product-content">
+                            <h3 >id: ${id}</h3>
+                            <span >site name : ${name}</span>
+                            <br/>
+                            <a href="${url}" target="_blank" >site url: ${name}</a>
+                            </div>
+                            </div>
+                            `;   
+                             
+                            })
+                        }
 
-                        htmlLeft += `
+                        console.log(items.subData);
+                        htmlRight += `
                         <div class = "product">
                         <div class = "product-content">
                         <h3 >id: ${id}</h3>
@@ -185,46 +166,14 @@ const createHtml = async () => {
                         </div>
                         </div>
                         `;
-                    })
+
+
+                    });
                 }
             });
 
 
             productListRight.innerHTML = htmlRight;
-
-
-
-            // data.forEach((product) => {
-            //     console.log(product);
-
-            //                       html += `<div>  <h3 >id: ${product.id}</h3>
-            //                       <span >site name : ${product.name}</span>
-            //                       <br/>
-            //                       <a href="${product.url}" target="_blank" >site url: ${product.name}</a> </div>`;
-
-            //                       productListLeft.innerHTML = html;
-
-
-            //                     //   product.subData.forEach((subData) => {
-            //                     //       const { id, name, url } = subData;
-
-            //                     //       html += `
-            //                     //       <div class = "product-item">
-
-            //                     //       <div class = "product-content">
-            //                     //       <h3 class = "product-name">id: ${id}</h3>
-            //                     //       <span class = "product-category">site name : ${name}</span>
-            //                     //       <br/>
-            //                     //       <a href="${url}" target="_blank" class = "product-price">site url: ${name}</a>
-            //                     //       </div>
-            //                     //       </div>
-            //                     //       `;
-            //                     //     });
-            //                     });
-            //                      //productList.innerHTML = html;
-
-
-
         })
         .catch((error) => {
             alert(`User live server or local server`);
