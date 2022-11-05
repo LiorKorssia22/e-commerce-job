@@ -1,20 +1,22 @@
+/* left Colum */
 .product-list-left {
     background-color: #91add2;
     border-radius: 5px;
     border-style: solid;
     border-color: green;
 }
+/* right colum */
 .product-list-right{
     background-color: #91add2;
     border-radius: 10px;
     border-style: solid;
     border-color: green;
 }
-
+/* id 1,8 */
 .firstId{
     text-align: left;
 }
-
+/* id 2,3,7,, 9,10,17,21 */
 .firstLine{
     width: 120px;
     background-color: rgb(134, 210, 226);
@@ -25,9 +27,8 @@
     left: 10%;
 }
 
-
+/* id 4,5,6,,11,15,16,18,19,20 */
 .secondLine{
-
     width: 100px;
     border-style: solid;
     border-color: green;
@@ -40,7 +41,7 @@
     background-color: rgb(128, 128, 128);
     border-radius: 5px;
 }
-
+/* id 12,13,14 */
 .thirdLine{
     width: 100px;
     left: 50%;

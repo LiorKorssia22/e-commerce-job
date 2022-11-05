@@ -1,23 +1,6 @@
 const productListLeft = document.querySelector(".product-list-left");
 const productListRight = document.querySelector(".product-list-right");
 
-//do const to same parameter
-//משתנים ברורים
-
-// function htmlTemp(id, name, url) {
-//     `
-//     <div class = "product">
-//     <div class = "product-content">
-//     <h3 >id: ${id}</h3>
-//     <span >site name : ${name}</span>
-//     <br/>
-//     <a href="${url}" target="_blank" >site url: ${name}</a>
-//     </div>
-//     </div>
-//     `
-// };
-
-
 // load product items content form JSON file
 const createHtml = async () => {
     await fetch("furniture.json")
@@ -25,9 +8,7 @@ const createHtml = async () => {
         .then((data) => {
             let htmlLeft = "";
             let htmlRight = "";
-
-            //check colum 1
-            console.log(data[0]);
+           
             //show id 1
             htmlLeft += `<div class = "firstId">
             <div>
@@ -38,8 +19,6 @@ const createHtml = async () => {
             <a href="${data[0].url}" target="_blank">site url: ${data[0].name}</a>
             </div>
             </div>`;
-
-
 
             //show 2,3,7
             data[0].subData.forEach(items => {
@@ -78,14 +57,13 @@ const createHtml = async () => {
             //show 8
             htmlRight += `
                      <div class = "firstId">
-                                          
                      <div class = "product-content">
                       <span >id: ${data[1].id}</span>
                       <br/>
                       <span >site name : ${data[1].name}</span>
                       <br/>
-                   <a href="${data[1].url}" target="_blank" >site url: ${data[1].name}</a>
-                        </div>
+                      <a href="${data[1].url}" target="_blank" >site url: ${data[1].name}</a>
+                      </div>
                       </div>
                       `;
 
@@ -143,8 +121,7 @@ const createHtml = async () => {
             productListRight.innerHTML = htmlRight;
         })
         .catch((error) => {
-            alert(`User live server or local server`);
-            //URL scheme must be "http" or "https" for CORS request. You need to be serving your index.html locally or have your site hosted on a live server somewhere for the Fetch API to work properly.
+            alert(`ERROR WITH User live server or local server`);
         });
 }
 createHtml();
