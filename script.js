@@ -1,6 +1,4 @@
 const productListLeft = document.querySelector(".product-list-left");
-const productListLeftInside = document.querySelector(".productIn");
-
 const productListRight = document.querySelector(".product-list-right");
 
 //do const to same parameter
@@ -27,7 +25,6 @@ const createHtml = async () => {
         .then((data) => {
             let htmlLeft = "";
             let htmlRight = "";
-            let productLeftInside = "";
 
             //check colum 1
             console.log(data[0]);
@@ -48,14 +45,12 @@ const createHtml = async () => {
             data[0].subData.forEach(items => {
                 const { id, name, url } = items;
                 htmlLeft += `
-                <div class = "productInInside">
-                <div class = "product">
+                    <div class = "firstLine">
                     <span >id: ${id}</span>
                     <br/>
                     <span >site name : ${name}</span>
                     <br/>
                     <a href="${url}" target="_blank">site url: ${name}</a>
-                    </div>
                     </div>
                     `;
                 //show 4,5,6
@@ -63,8 +58,7 @@ const createHtml = async () => {
                     items.subData.forEach(item => {
                         const { id, name, url } = item;
                         htmlLeft += `
-                       
-                        <div class = "productIn">
+                        <div class = "secondLine">
                         <div >
                         <span>id: ${id}</span>
                         <br/>
@@ -73,16 +67,14 @@ const createHtml = async () => {
                         <a href="${url}" target="_blank">site url: ${name}</a>
                         </div>
                         </div>
-                        
                         `;
                     })
                 }
             });
-            // productListLeftInside.innerHTML = productLeftInside;
             productListLeft.innerHTML = htmlLeft;
 
 
-            //check colum 2
+            // colum 2
             //show 8
             htmlRight += `
                      <div class = "firstId">
@@ -103,8 +95,8 @@ const createHtml = async () => {
                 const { id, name, url } = items;
 
                 htmlRight += `
-                    <div class = "product">
-                    <div class = "product-content">
+                    <div class = "firstLine">
+                    <div>
                     <span >id: ${id}</span>
                     <br/>
                     <span >site name : ${name}</span>
@@ -118,8 +110,8 @@ const createHtml = async () => {
                     items.subData.forEach(item => {
                         const { id, name, url } = item;
                         htmlRight += `
-                        <div class = "productIn">
-                        <div class = "product-content">
+                        <div class = "secondLine">
+                        <div>
                         <span >id: ${id}</span>
                         <br/>
                         <span >site name : ${name}</span>
@@ -133,7 +125,7 @@ const createHtml = async () => {
                             item.subData.forEach(prod => {
                                 const { id, name, url } = prod;
                                 htmlRight += `
-                            <div class = "productInIn">
+                            <div class = "thirdLine">
                             <div>
                             <span >id: ${id}</span>
                             <br/>

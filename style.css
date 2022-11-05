@@ -3,8 +3,6 @@
     border-radius: 5px;
     border-style: solid;
     border-color: green;
-
-
 }
 .product-list-right{
     background-color: #91add2;
@@ -17,16 +15,18 @@
     text-align: left;
 }
 
-.product{
+.firstLine{
     width: 120px;
     background-color: rgb(134, 210, 226);
     border-radius: 5px;
     border-style: solid;
     border-color: green;
+    position: relative;
+    left: 10%;
 }
 
 
-.productIn{
+.secondLine{
 
     width: 100px;
     border-style: solid;
@@ -36,16 +36,15 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    left: 20%;
+    left: 30%;
     background-color: rgb(128, 128, 128);
     border-radius: 5px;
 }
 
-.productInIn{
+.thirdLine{
     width: 100px;
     left: 50%;
     position: relative;
-
     border-style: solid;
     border-color: green;
     text-align: right;
