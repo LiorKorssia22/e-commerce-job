@@ -1,12 +1,56 @@
 .product-list-left {
-   color:blue;
-}
-.product-list-right{
-   color:blue;
+    background-color: #91add2;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: green;
+
 
 }
+.product-list-right{
+    background-color: #91add2;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: green;
+}
+
+.firstId{
+    text-align: left;
+}
+
 .product{
-    color:green;
+    width: 120px;
+    background-color: rgb(134, 210, 226);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: green;
+}
+
+
+.productIn{
+
+    width: 100px;
+    border-style: solid;
+    border-color: green;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 20%;
+    background-color: rgb(128, 128, 128);
+    border-radius: 5px;
+}
+
+.productInIn{
+    width: 100px;
+    left: 50%;
+    position: relative;
+
+    border-style: solid;
+    border-color: green;
+    text-align: right;
+    background-color: peru;
+    border-radius: 5px;
 }
 
 .card {
